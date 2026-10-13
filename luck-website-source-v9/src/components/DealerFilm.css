@@ -1,0 +1,56 @@
+.dealer-film {
+  position: absolute;
+  inset: 0;
+}
+.dealer-film-still,
+.dealer-film-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  pointer-events: none;
+}
+.dealer-film-video.unavailable {
+  display: none;
+}
+.dealer-film-controls {
+  position: absolute;
+  bottom: 72px;
+  right: 32px;
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+.dealer-film-controls button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #071a13e6;
+  color: var(--gold);
+  font-size: 11px;
+}
+.dealer-film-controls button:hover {
+  border-color: var(--gold);
+}
+@media (max-width: 600px) {
+  .dealer-film-controls {
+    right: 16px;
+    bottom: 16px;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dealer-film-video {
+    display: none;
+  }
+  .dealer-film-controls {
+    display: none;
+  }
+}

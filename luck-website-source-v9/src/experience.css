@@ -1,0 +1,1795 @@
+/* User-approved emerald drawing room. Photographic assets carry the material;
+   controls, numbers and outcomes remain real accessible interface elements. */
+:root {
+  --gold: #e8c983;
+  --line: #314538;
+  --muted: #a6b7aa;
+}
+.site-shell {
+  background: #071510;
+}
+.site-header {
+  height: 74px;
+  background: #06130e;
+  border-bottom-color: #75613b66;
+}
+.header-inner {
+  max-width: 1500px;
+  padding-inline: 38px;
+}
+.main-nav {
+  gap: 32px;
+}
+.brand {
+  font-size: 37px;
+}
+.demo-strip {
+  background: #0c1b13;
+  border-bottom: 1px solid #233526;
+}
+.demo-strip > div {
+  max-width: 1420px;
+}
+.demo-strip strong {
+  background: transparent;
+  border: 1px solid #8c775140;
+  color: #dcc992;
+}
+.demo-strip-right {
+  opacity: 0.65;
+}
+.button {
+  min-height: 44px;
+  border-radius: 8px;
+  font-weight: 650;
+}
+.button.primary {
+  background: var(--green);
+  color: #17230f;
+}
+.button.primary:hover:not(:disabled) {
+  background: #d3ff98;
+}
+.panel {
+  background: #102118;
+  border-color: #33432b;
+}
+.inner-page {
+  max-width: 1360px;
+  padding: 40px 30px 60px;
+}
+.page-head {
+  border-bottom: 1px solid #79633c55;
+  padding-bottom: 28px;
+  margin-bottom: 30px;
+}
+.page-head h1 {
+  color: #f2e5c1;
+  font-size: 36px;
+  letter-spacing: -0.03em;
+}
+.page-head p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.panel-heading h2 {
+  color: #eee5ca;
+}
+.history-toolbar,
+.account-wallet {
+  border-color: #6e5d3b70;
+}
+footer {
+  max-width: 1360px;
+  margin: 35px auto 0;
+  padding-inline: 30px;
+  border-top-color: #7d69433b;
+}
+.experience-page {
+  max-width: 1536px;
+  padding: 24px 30px 40px;
+  margin: auto;
+}
+.daily-room {
+  display: grid;
+  grid-template-columns: minmax(0, 1.85fr) minmax(350px, 1fr);
+  border: 1px solid #5c513044;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0a1a12;
+}
+.draw-stage {
+  position: relative;
+  min-width: 0;
+  min-height: 745px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+.stage-backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+}
+.stage-heading {
+  position: absolute;
+  z-index: 2;
+  top: 27px;
+  left: 30px;
+  right: 28px;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 14px;
+}
+.stage-heading h1 {
+  font-size: clamp(27px, 2.6vw, 41px);
+  color: #f7e9b9;
+  font-weight: 750;
+  letter-spacing: -0.035em;
+}
+.stage-heading h1 > span {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 13px;
+  padding: 5px 10px;
+  border: 1px solid #b7a27377;
+  border-radius: 25px;
+  margin-left: 8px;
+  letter-spacing: 0;
+}
+.stage-heading p {
+  font-size: 16px;
+  color: #d9d7bd;
+  margin-top: 6px;
+}
+.stage-heading small {
+  display: block;
+  font-size: 11px;
+  margin-top: 9px;
+  color: #bfc5b6;
+}
+.draw-timer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.draw-timer > strong {
+  color: #f0d99c;
+  font-size: 26px;
+  font-weight: 700;
+  white-space: nowrap;
+  line-height: 1.3;
+}
+.draw-timer > span {
+  font-size: 12px;
+  color: #cdd4c8;
+}
+.draw-timer.drawing > strong {
+  color: var(--green);
+}
+.wheel-experience {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  margin: 120px auto 35px;
+}
+.wheel-wrap {
+  position: relative;
+  width: min(91%, 580px);
+  aspect-ratio: 1;
+  margin: auto;
+}
+.wheel-rotor {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+.wheel-rotor > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.wheel-pointer {
+  position: absolute;
+  left: 50%;
+  top: -0.4%;
+  transform: translateX(-50%) rotate(180deg);
+  color: #f1d68c;
+  z-index: 3;
+  filter: drop-shadow(0 5px 3px #0009);
+  width: 8%;
+  height: 8%;
+}
+.wheel-numbers {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: absolute;
+  inset: 0;
+}
+.wheel-numbers li {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+}
+.wheel-numbers li span {
+  display: block;
+  position: absolute;
+  top: 12.4%;
+  color: #fae7af;
+  font-size: clamp(18px, 2.05vw, 30px);
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 2px 2px #0009;
+}
+.wheel-numbers li::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 24%;
+  background: #d5b46665;
+  left: 50%;
+  top: 11%;
+  transform-origin: 0 162.5%;
+  transform: rotate(9deg);
+}
+.wheel-reveal {
+  text-align: center;
+  margin-top: -1%;
+}
+.wheel-reveal > p {
+  font-size: 14px;
+  color: #ead59a;
+  margin-bottom: 10px;
+}
+.result-slots {
+  display: flex;
+  justify-content: center;
+  gap: clamp(8px, 1.1vw, 17px);
+  background: #06110ee0;
+  border: 1px solid #8c774d;
+  border-radius: 50px;
+  width: fit-content;
+  margin: auto;
+  padding: 10px 18px;
+  box-shadow: 0 10px 20px #0004;
+}
+.result-slots .ball,
+.result-slot {
+  width: 53px;
+  height: 53px;
+  font-size: 22px;
+}
+.result-slot {
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #779581;
+  background: #112820;
+  border: 1px solid #375445;
+}
+.stage-tools {
+  position: absolute;
+  bottom: 14px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  color: #b9c4b4;
+  font-size: 11px;
+}
+.preview-draw {
+  border: 1px solid #ae956158;
+  background: #0c1b15c9;
+  color: #dfcc97;
+  border-radius: 6px;
+  padding: 0 12px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 12px;
+}
+.preview-draw:hover:not(:disabled) {
+  background: #263825;
+  border-color: var(--gold);
+}
+.preview-draw:disabled {
+  opacity: 0.6;
+}
+.selection-rail {
+  padding: 28px;
+  border-left: 1px solid #7c693840;
+  background: #0c1d14;
+  min-width: 0;
+}
+.rail-vault {
+  border-bottom: 1px solid #66583466;
+  padding-bottom: 23px;
+}
+.rail-vault > span:first-child {
+  display: block;
+  color: #e6e7d6;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.rail-vault > .money {
+  color: #f3d58c;
+  display: block;
+  font-size: clamp(28px, 2.6vw, 43px);
+  font-weight: 750;
+  letter-spacing: -0.035em;
+  line-height: 1.3;
+}
+.rail-vault > .money:last-child {
+  font-size: 24px;
+  margin-top: 5px;
+}
+.rail-vault > .money > small {
+  font-size: 12px;
+  color: #bfc6b4;
+  margin-left: 7px;
+  font-weight: 400;
+}
+.rail-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 22px 0 15px;
+}
+.rail-heading h2 {
+  font-size: 20px;
+  color: #f0eed9;
+}
+.rail-heading > a {
+  color: var(--muted);
+  padding: 5px;
+}
+.selection-rail .play-mode {
+  display: flex;
+  padding: 0;
+  gap: 18px;
+  background: none;
+  margin-bottom: 17px;
+  border-bottom: 1px solid #344330;
+}
+.selection-rail .play-mode > button {
+  font-size: 13px;
+  border-radius: 0;
+  padding: 0 0 9px;
+  min-height: 36px;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+}
+.selection-rail .play-mode > .active {
+  color: var(--green);
+  border-bottom-color: var(--green);
+}
+.selection-rail .number-grid-label {
+  margin: 10px 0;
+  font-size: 11px;
+  color: #b7c5b7;
+}
+.selection-rail .number-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 11px;
+}
+.selection-rail .number-grid > button {
+  font-size: 19px;
+  width: 100%;
+  max-height: 54px;
+  background: #10271c;
+  border: 1px solid #6d7c59;
+  color: #efefd7;
+}
+.selection-rail .number-grid > button.selected {
+  color: #12200b;
+  background: var(--green);
+  border-color: #d7f7a1;
+}
+.selection-rail .number-actions {
+  padding: 10px 0;
+  border: 0;
+}
+.selection-rail .number-actions button {
+  min-height: 34px;
+  font-size: 12px;
+}
+.selection-rail .package-modes {
+  gap: 5px;
+  margin-bottom: 8px;
+}
+.selection-rail .package-modes button {
+  font-size: 11px;
+  padding: 7px 0;
+}
+.selected-brief {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-block: 7px;
+  border-block: 1px solid #394a3544;
+  margin-bottom: 12px;
+}
+.selected-brief > span {
+  font-size: 11px;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.selected-brief > div {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.selected-brief .ball {
+  width: 27px;
+  height: 27px;
+  font-size: 11px;
+}
+.selected-brief small {
+  color: var(--muted);
+  font-size: 11px;
+}
+.selection-rail .multiplier > label {
+  margin-bottom: 8px;
+}
+.selection-rail .multiplier-controls {
+  gap: 6px;
+}
+.selection-rail .number-input {
+  width: 76px;
+}
+.rail-payment {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 15px;
+  gap: 10px;
+  align-items: center;
+}
+.rail-payment > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.rail-payment > div:last-child {
+  text-align: right;
+}
+.rail-payment > div > span:first-child {
+  font-size: 11px;
+  color: var(--muted);
+}
+.rail-payment strong {
+  font-size: 22px;
+}
+.rail-payment strong > small {
+  font-size: 13px;
+}
+.rail-payment .money {
+  font-size: 19px;
+  color: var(--gold);
+}
+.rail-hint {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+  text-align: center;
+  margin-top: 10px;
+}
+.stage-history {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 22px 26px;
+  margin-block: 18px 28px;
+  border-block: 1px solid #564b3166;
+  min-width: 0;
+  background: #0b1c13;
+}
+.stage-history > span {
+  font-size: 14px;
+  color: #e1e6d5;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.stage-history-results {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 25px;
+  min-width: 0;
+  flex: 1;
+  overflow-x: auto;
+  padding: 4px;
+}
+.history-result-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.history-result-link > small {
+  font-size: 10px;
+  color: #a4b9aa;
+}
+.history-camp {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #869c69;
+  border-radius: 50%;
+  font-size: 17px;
+  color: var(--green);
+}
+.history-camp.small {
+  color: #d6e3d8;
+  border-color: #84968b;
+}
+.history-camp.triple {
+  font-size: 13px;
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.history-more {
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.daily-bottom {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 36px;
+  max-width: 1320px;
+  margin: 32px auto 0;
+}
+.reward-details {
+  padding: 25px;
+}
+.daily-rule-note {
+  padding: 30px 10px;
+  color: var(--gold);
+}
+.daily-rule-note > h2 {
+  font-size: 24px;
+  margin: 14px 0;
+  color: #e8e9d4;
+}
+.daily-rule-note > p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+  max-width: 45ch;
+}
+.daily-rule-note > div {
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr;
+  align-items: baseline;
+  gap: 9px;
+  margin: 27px 0;
+}
+.daily-rule-note > div > strong {
+  font-size: 27px;
+  font-weight: 650;
+}
+.daily-rule-note > div > span {
+  font-size: 11px;
+  color: #cad2bf;
+}
+/* Panoramic dealer table: imagery fills the room; betting zones are native controls. */
+.dealer-room {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #75603766;
+  background: #103d2e;
+}
+.dealer-stage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  min-height: 480px;
+}
+.dealer-photograph {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.dealer-photograph::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, transparent 86%, #103d2e),
+    linear-gradient(
+      to right,
+      #03100bc7,
+      transparent 34%,
+      transparent 66%,
+      #03100ba6
+    );
+}
+.dealer-heading {
+  position: absolute;
+  left: 35px;
+  top: 30px;
+  color: #f7e7b9;
+  z-index: 2;
+}
+.dealer-heading > h1 {
+  font-size: 38px;
+  font-weight: 750;
+  letter-spacing: -0.03em;
+}
+.dealer-heading > p {
+  font-size: 15px;
+  margin-top: 7px;
+  color: #dfdfce;
+}
+.scene-preview {
+  display: inline-block;
+  border: 1px solid #bba36670;
+  border-radius: 5px;
+  color: #e3d49e;
+  font-size: 11px;
+  padding: 4px 8px;
+  margin-top: 18px;
+}
+.dealer-tagline {
+  font-size: 29px;
+  letter-spacing: 0.06em;
+  font-weight: 450;
+  line-height: 1.65;
+  margin-top: 40px;
+  color: #f1edda;
+}
+.dealer-heading > small {
+  display: block;
+  color: #c7cbb6;
+  margin-top: 9px;
+  font-size: 12px;
+}
+.dealer-heading .preview-draw {
+  margin-top: 24px;
+}
+.dealer-timing {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  text-align: center;
+  width: 150px;
+  z-index: 2;
+}
+.dealer-timing .draw-timer {
+  border: 2px solid #bea15e;
+  background: #0e201b80;
+  aspect-ratio: 1;
+  justify-content: center;
+  border-radius: 50%;
+  gap: 8px;
+}
+.dealer-timing .draw-timer strong {
+  font-size: 39px;
+  line-height: 1.1;
+}
+.dealer-timing .draw-timer > span {
+  color: #eee0b6;
+  font-size: 14px;
+}
+.dealer-timing > span {
+  display: block;
+  margin-top: 14px;
+  color: #ddd9be;
+  font-size: 11px;
+}
+.is-shaking .dealer-timing .draw-timer {
+  animation: timer-breathe 1.6s ease-in-out infinite;
+}
+@keyframes timer-breathe {
+  50% {
+    border-color: #ffe4a3;
+    box-shadow: 0 5px 24px #b88b422b;
+  }
+}
+.dealer-previous {
+  position: absolute;
+  bottom: 72px;
+  left: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: #071a12a1;
+  border: 1px solid #7b6b3b66;
+  border-radius: 7px;
+  z-index: 2;
+}
+.dealer-previous > span {
+  color: #d4c28e;
+  font-size: 11px;
+}
+.dealer-previous b {
+  color: #e8e8d4;
+  margin-left: 5px;
+}
+.dealer-previous .die {
+  width: 24px;
+  height: 24px;
+}
+.dealer-previous .dice {
+  gap: 5px;
+}
+.table-result {
+  position: absolute;
+  bottom: 88px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  background: #071b13ed;
+  border: 1px solid #b6a16b;
+  border-radius: 12px;
+  padding: 15px 35px;
+  min-width: 250px;
+  z-index: 5;
+  box-shadow: 0 12px 30px #0005;
+  animation: reveal-in 0.45s ease-out both;
+}
+.table-result .die {
+  width: 42px;
+  height: 42px;
+}
+.table-result > strong {
+  color: #f3d186;
+  font-size: 30px;
+}
+.table-result > strong > span {
+  color: #f0ebd4;
+  font-size: 25px;
+}
+.table-result > small {
+  font-size: 11px;
+  color: #c4d7a5;
+}
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    translate: 0 8px;
+  }
+}
+.table-settlement-note {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10px 30px;
+  color: #bac9b4;
+  font-size: 12px;
+}
+.table-settlement-note > span,
+.table-settlement-note > a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.table-settlement-note svg,
+.table-settlement-note .money {
+  color: var(--gold);
+}
+.scene-footnote {
+  font-size: 11px;
+  line-height: 1.7;
+  color: #a2b39f;
+  text-align: center;
+  margin-top: 18px;
+}
+/* Lobby uses the same actual scenes as the two game rooms. */
+.lobby-page {
+  max-width: 1440px;
+  padding: 36px 32px 50px;
+}
+.lobby-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0 34px;
+}
+.lobby-intro h1 {
+  font-size: 46px;
+  color: #f4e3b5;
+  font-weight: 720;
+  letter-spacing: -0.035em;
+}
+.lobby-intro h1 > span {
+  color: #f1eedc;
+}
+.lobby-intro p {
+  margin-top: 12px;
+  font-size: 15px;
+  color: #b5c4b3;
+}
+.lobby-quote {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-left: 28px;
+  border-left: 1px solid #73654160;
+}
+.lobby-quote > span {
+  font-size: 11px;
+  color: #b5c7b3;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+.lobby-quote > strong {
+  font-size: 27px;
+  color: var(--gold);
+  font-weight: 700;
+}
+.lobby-quote > small {
+  color: #a4b99d;
+  font-size: 11px;
+}
+.lobby-games {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.lobby-game {
+  border: 1px solid #73623e88;
+  border-radius: 13px;
+  overflow: hidden;
+  background: #0d2015;
+  min-width: 0;
+}
+.lobby-game-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  gap: 12px;
+}
+.lobby-game-title h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #f0e0b1;
+  letter-spacing: -0.025em;
+}
+.lobby-game-title h2 span {
+  display: inline-block;
+  font-size: 10px;
+  border: 1px solid #9a865b88;
+  border-radius: 20px;
+  padding: 4px 8px;
+  vertical-align: middle;
+  margin-left: 8px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.lobby-game-title p {
+  font-size: 12px;
+  color: #b2c2ab;
+  margin-top: 7px;
+}
+.lobby-game-title .draw-timer > strong {
+  font-size: 24px;
+}
+.lobby-game-title .draw-timer > span {
+  font-size: 10px;
+}
+.lobby-scene {
+  display: block;
+  position: relative;
+  height: 344px;
+  overflow: hidden;
+  background: #08150e;
+}
+.lobby-stage-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 65%;
+}
+.lobby-scene .wheel-experience {
+  margin: 10px auto;
+  width: 330px;
+}
+.lobby-scene .wheel-wrap {
+  width: 100%;
+}
+.lobby-scene .wheel-numbers li span {
+  font-size: 18px;
+}
+.lobby-dealer-scene > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 33%;
+  transition: transform 0.5s ease-out;
+}
+.lobby-scene:hover > img {
+  transform: scale(1.025);
+}
+.lobby-scene-caption {
+  position: absolute;
+  z-index: 2;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  width: fit-content;
+  margin: auto;
+  padding: 7px 18px;
+  border-radius: 20px;
+  background: #051911cf;
+  color: #e2debe;
+  font-size: 11px;
+}
+.lobby-game-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px 24px;
+  min-height: 136px;
+}
+.lobby-prize {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.lobby-prize > span:first-child {
+  color: #a9baa0;
+  font-size: 11px;
+}
+.lobby-prize .money {
+  color: #ead092;
+  font-size: 24px;
+  font-weight: 650;
+}
+.lobby-prize .money:last-child {
+  font-size: 17px;
+}
+.lobby-prize .money small {
+  font-size: 10px;
+  color: #becbb0;
+}
+.lobby-game-bottom .button {
+  min-width: 142px;
+}
+.lobby-camps {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+}
+.lobby-camps > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.lobby-camps strong {
+  font-size: 25px;
+  color: #e4d19f;
+}
+.lobby-camps .money {
+  font-size: 14px;
+  color: #dbe3c9;
+}
+.lobby-camps .money small {
+  display: block;
+  font-size: 9px;
+  color: #9fb395;
+  margin: 0;
+}
+.lobby-game-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 24px;
+  border-top: 1px solid #53613e55;
+  font-size: 10px;
+  color: #b5c4a5;
+}
+.lobby-game-foot > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.lobby-page .stats-bar {
+  margin-top: 30px;
+  background: #0d201600;
+  border-block: 1px solid #75633b55;
+  border-radius: 0;
+}
+.lobby-page .latest-section {
+  margin-top: 34px;
+}
+@media (min-width: 1650px) {
+  .draw-stage {
+    min-height: 810px;
+  }
+  .wheel-wrap {
+    width: 620px;
+  }
+}
+@media (max-width: 1250px) {
+  .experience-page {
+    padding: 18px;
+  }
+  .daily-room {
+    grid-template-columns: minmax(0, 1.5fr) minmax(340px, 1fr);
+  }
+  .selection-rail {
+    padding: 23px;
+  }
+  .draw-stage {
+    min-height: 725px;
+  }
+  .stage-heading {
+    left: 20px;
+    right: 20px;
+  }
+  .stage-heading h1 {
+    font-size: 31px;
+  }
+  .stage-heading h1 > span {
+    display: block;
+    width: fit-content;
+    margin: 5px 0 0;
+    font-size: 10px;
+  }
+  .stage-heading p {
+    font-size: 13px;
+  }
+  .stage-heading .draw-timer > strong {
+    font-size: 22px;
+  }
+  .wheel-experience {
+    margin-top: 135px;
+  }
+
+  .dealer-heading {
+    left: 26px;
+  }
+  .dealer-heading h1 {
+    font-size: 32px;
+  }
+  .dealer-tagline {
+    font-size: 23px;
+  }
+  .dealer-timing {
+    width: 150px;
+  }
+  .dealer-timing .draw-timer strong {
+    font-size: 33px;
+  }
+
+  .lobby-page {
+    padding-inline: 24px;
+  }
+  .lobby-game-title {
+    padding: 20px;
+  }
+  .lobby-game-title h2 {
+    font-size: 24px;
+  }
+  .lobby-game-title h2 span {
+    display: none;
+  }
+  .lobby-game-title .draw-timer > strong {
+    font-size: 19px;
+  }
+  .lobby-game-bottom {
+    padding: 18px;
+  }
+  .lobby-camps {
+    gap: 12px;
+  }
+  .lobby-game-bottom .button {
+    min-width: 110px;
+    font-size: 12px;
+    padding-inline: 10px;
+  }
+  .lobby-prize .money {
+    font-size: 20px;
+  }
+}
+@media (max-width: 1000px) {
+  .header-inner {
+    padding-inline: 22px;
+  }
+  .main-nav {
+    gap: 18px;
+  }
+  .network {
+    display: none;
+  }
+
+  .dealer-heading h1 {
+    font-size: 28px;
+  }
+  .dealer-heading > p {
+    font-size: 12px;
+  }
+  .dealer-heading > small,
+  .dealer-tagline {
+    display: none;
+  }
+  .dealer-timing {
+    width: 126px;
+  }
+  .dealer-timing .draw-timer strong {
+    font-size: 30px;
+  }
+  .dealer-timing .draw-timer > span {
+    font-size: 11px;
+  }
+
+  .dealer-heading .preview-draw {
+    display: flex;
+  }
+  .table-result {
+    padding: 12px 24px;
+  }
+  .stage-history {
+    gap: 16px;
+    padding-inline: 18px;
+  }
+  .stage-history-results {
+    justify-content: start;
+    gap: 18px;
+  }
+  .lobby-intro h1 {
+    font-size: 36px;
+  }
+  .lobby-game-bottom {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .lobby-game-bottom > .button {
+    min-height: 44px;
+  }
+  .lobby-prize {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .lobby-prize > span:first-child {
+    width: 100%;
+  }
+  .lobby-prize .money:last-child {
+    margin-left: auto;
+  }
+  .lobby-camps {
+    justify-content: space-between;
+  }
+  .lobby-camps > div {
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+  }
+}
+@media (max-width: 800px) {
+  .daily-room {
+    grid-template-columns: 1fr;
+  }
+  .draw-stage {
+    min-height: 660px;
+  }
+  .wheel-wrap {
+    width: min(85%, 460px);
+  }
+  .wheel-numbers li span {
+    font-size: 24px;
+  }
+  .stage-heading h1 {
+    font-size: 32px;
+  }
+  .stage-heading h1 > span {
+    display: inline-block;
+    margin-left: 8px;
+  }
+  .stage-heading .draw-timer > strong {
+    font-size: 25px;
+  }
+  .wheel-experience {
+    margin: 125px auto 45px;
+  }
+  .selection-rail {
+    border: 0;
+    border-top: 1px solid #78663d66;
+    padding: 25px;
+  }
+  .rail-vault > .money {
+    font-size: 34px;
+  }
+  .rail-vault > .money:last-child {
+    font-size: 22px;
+  }
+  .selection-rail .number-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+  }
+  .selection-rail .number-grid button {
+    max-height: 65px;
+    justify-self: center;
+    max-width: 65px;
+  }
+  .daily-bottom {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .daily-rule-note {
+    padding: 18px;
+  }
+  .selection-rail .number-input {
+    width: 110px;
+  }
+  .lobby-games {
+    grid-template-columns: 1fr;
+  }
+  .lobby-intro h1 {
+    font-size: 34px;
+  }
+  .lobby-intro {
+    gap: 20px;
+  }
+  .lobby-quote {
+    padding-left: 15px;
+  }
+  .lobby-quote > strong {
+    font-size: 22px;
+  }
+  .lobby-quote > small {
+    font-size: 9px;
+  }
+  .lobby-game-title h2 {
+    font-size: 25px;
+  }
+  .lobby-game-title h2 span {
+    display: inline-block;
+  }
+  .lobby-game-bottom {
+    flex-direction: row;
+    align-items: center;
+  }
+  .lobby-prize {
+    flex-direction: column;
+    align-items: start;
+  }
+  .lobby-prize .money:last-child {
+    margin: 0;
+  }
+  .lobby-camps > div {
+    flex-direction: column;
+    gap: 3px;
+  }
+  .lobby-game-bottom .button {
+    min-width: 142px;
+  }
+  .lobby-scene {
+    height: 360px;
+  }
+  .lobby-scene .wheel-experience {
+    margin-top: 8px;
+    width: 350px;
+  }
+}
+@media (max-width: 600px) {
+  .dealer-stage {
+    height: 430px;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+  .dealer-timing {
+    top: 20px;
+    right: 16px;
+  }
+  .dealer-previous {
+    left: 16px;
+    bottom: 16px;
+  }
+  .table-result {
+    bottom: 76px;
+  }
+  .site-header {
+    height: 65px;
+  }
+  .brand {
+    font-size: 31px;
+  }
+  .header-inner {
+    padding-inline: 16px;
+  }
+  .header-actions {
+    gap: 8px;
+  }
+  .wallet-button {
+    padding: 9px 10px;
+  }
+  .demo-strip > div {
+    padding-inline: 15px;
+  }
+  .experience-page {
+    padding: 0 0 25px;
+  }
+  .daily-room,
+  .dealer-room {
+    border-radius: 0;
+    border-inline: 0;
+  }
+  .draw-stage {
+    min-height: 570px;
+  }
+  .stage-heading {
+    top: 24px;
+    left: 18px;
+    right: 18px;
+  }
+  .stage-heading h1 {
+    font-size: 27px;
+  }
+  .stage-heading p {
+    font-size: 12px;
+  }
+  .stage-heading small {
+    font-size: 10px;
+  }
+  .stage-heading .draw-timer {
+    padding-top: 5px;
+  }
+  .stage-heading .draw-timer > strong {
+    font-size: 20px;
+  }
+  .stage-heading .draw-timer > span {
+    font-size: 10px;
+  }
+  .stage-heading h1 > span {
+    font-size: 9px;
+    padding: 3px 6px;
+    margin-left: 3px;
+  }
+  .wheel-experience {
+    margin: 115px auto 40px;
+  }
+  .wheel-wrap {
+    width: 94%;
+  }
+  .wheel-numbers li span {
+    font-size: 20px;
+  }
+  .result-slots {
+    gap: 8px;
+    padding: 8px 12px;
+  }
+  .result-slots .ball,
+  .result-slot {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  .wheel-reveal {
+    margin-top: 5px;
+  }
+  .wheel-reveal > p {
+    font-size: 12px;
+  }
+  .stage-tools {
+    left: 20px;
+    right: 20px;
+    bottom: 10px;
+  }
+  .selection-rail {
+    padding: 25px 22px;
+  }
+  .selection-rail .number-grid {
+    gap: 12px;
+  }
+  .selection-rail .number-grid > button {
+    min-height: 44px;
+  }
+  .rail-vault {
+    padding-bottom: 20px;
+  }
+  .stage-history {
+    gap: 13px;
+    padding: 17px 18px;
+    margin-block: 0 22px;
+    align-items: center;
+  }
+  .stage-history > span {
+    font-size: 12px;
+  }
+  .daily-experience .stage-history {
+    flex-wrap: wrap;
+  }
+  .daily-experience .stage-history-results {
+    flex: auto;
+  }
+  .stage-history .ball {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+  .stage-history .ball-row {
+    gap: 7px;
+  }
+  .history-more {
+    font-size: 11px;
+  }
+  .quick-experience .history-more {
+    display: none;
+  }
+  .history-result-link > small {
+    font-size: 9px;
+  }
+  .daily-bottom {
+    margin: 0 17px;
+    gap: 15px;
+  }
+  .reward-details {
+    padding: 18px;
+  }
+  .reward-details .panel-heading h2 {
+    font-size: 16px;
+  }
+  .daily-rule-note {
+    padding: 20px 8px;
+  }
+  .daily-rule-note > h2 {
+    font-size: 23px;
+  }
+  .daily-rule-note > div {
+    grid-template-columns: auto 1fr;
+    gap: 8px 14px;
+  }
+
+  .dealer-heading {
+    left: 16px;
+    top: 18px;
+  }
+  .dealer-heading h1 {
+    font-size: 26px;
+  }
+  .dealer-heading > p {
+    font-size: 10px;
+    margin-top: 4px;
+  }
+  .scene-preview {
+    font-size: 9px;
+    margin-top: 12px;
+    padding: 3px 6px;
+  }
+  .dealer-heading .preview-draw {
+    margin-top: 16px;
+    font-size: 10px;
+    padding-inline: 8px;
+    min-height: 44px;
+  }
+  .dealer-timing {
+    width: 94px;
+  }
+  .dealer-timing .draw-timer {
+    gap: 4px;
+    border-width: 1px;
+    background: #0b211ac9;
+  }
+  .dealer-timing .draw-timer > strong {
+    font-size: 24px;
+  }
+  .dealer-timing .draw-timer > span {
+    font-size: 10px;
+  }
+  .dealer-timing > span {
+    font-size: 9px;
+    margin-top: 7px;
+    max-width: 94px;
+    line-height: 1.4;
+  }
+  .dealer-previous {
+    gap: 7px;
+    padding: 6px 9px;
+  }
+  .dealer-previous .die {
+    width: 20px;
+    height: 20px;
+  }
+  .dealer-previous > span {
+    font-size: 10px;
+  }
+  .table-result {
+    padding: 12px 18px;
+    min-width: 200px;
+  }
+  .table-result .die {
+    width: 30px;
+    height: 30px;
+  }
+  .table-result > strong {
+    font-size: 23px;
+  }
+  .table-result > strong > span {
+    font-size: 19px;
+  }
+  .table-settlement-note {
+    margin: 0 20px 22px;
+    font-size: 11px;
+    gap: 10px;
+  }
+  .quick-experience .records-panel {
+    margin-inline: 15px;
+  }
+  .scene-footnote {
+    padding-inline: 20px;
+    font-size: 10px;
+  }
+  .lobby-page {
+    padding: 26px 17px 35px;
+  }
+  .lobby-intro {
+    align-items: start;
+    padding-bottom: 24px;
+  }
+  .lobby-intro h1 {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+  .lobby-intro h1 span {
+    display: block;
+  }
+  .lobby-intro p {
+    font-size: 11px;
+    line-height: 1.7;
+    max-width: 23ch;
+  }
+  .lobby-quote {
+    padding-left: 0;
+    border: 0;
+    padding-top: 5px;
+    gap: 5px;
+  }
+  .lobby-quote > span {
+    font-size: 9px;
+    gap: 4px;
+  }
+  .lobby-quote .badge {
+    display: none;
+  }
+  .lobby-quote > strong {
+    font-size: 20px;
+  }
+  .lobby-quote > small {
+    font-size: 9px;
+    max-width: 13ch;
+    line-height: 1.7;
+  }
+  .lobby-games {
+    gap: 22px;
+  }
+  .lobby-game-title {
+    padding: 20px 17px;
+    gap: 8px;
+  }
+  .lobby-game-title h2 {
+    font-size: 24px;
+  }
+  .lobby-game-title h2 > span {
+    font-size: 8px;
+    margin-left: 3px;
+    padding: 3px 5px;
+  }
+  .lobby-game-title p {
+    font-size: 10px;
+  }
+  .lobby-game-title .draw-timer > strong {
+    font-size: 18px;
+  }
+  .lobby-game-title .draw-timer > span {
+    font-size: 9px;
+  }
+  .lobby-scene {
+    height: 300px;
+  }
+  .lobby-scene .wheel-experience {
+    width: 280px;
+    margin: 6px auto;
+  }
+  .lobby-scene .wheel-numbers li span {
+    font-size: 16px;
+  }
+  .lobby-game-bottom {
+    gap: 12px;
+    padding: 19px 17px;
+    min-height: 127px;
+  }
+  .lobby-prize .money {
+    font-size: 22px;
+  }
+  .lobby-prize .money:last-child {
+    font-size: 15px;
+  }
+  .lobby-game-bottom .button {
+    min-width: 104px;
+    font-size: 11px;
+  }
+  .lobby-camps {
+    gap: 10px;
+  }
+  .lobby-camps strong {
+    font-size: 21px;
+  }
+  .lobby-camps .money {
+    font-size: 11px;
+  }
+  .lobby-game-foot {
+    padding: 12px 17px;
+    font-size: 9px;
+  }
+  .inner-page {
+    padding: 26px 17px 40px;
+  }
+  .page-head h1 {
+    font-size: 29px;
+  }
+  .page-head p {
+    font-size: 12px;
+  }
+  .page-head {
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+  }
+  footer {
+    margin-top: 15px;
+    padding-inline: 20px;
+  }
+}
+@media (max-width: 360px) {
+  .stage-heading h1 {
+    font-size: 23px;
+  }
+  .stage-heading h1 > span {
+    display: none;
+  }
+  .draw-stage {
+    min-height: 525px;
+  }
+  .wheel-numbers li span {
+    font-size: 17px;
+  }
+  .result-slots {
+    gap: 6px;
+    padding: 8px;
+  }
+  .result-slot,
+  .result-slots .ball {
+    width: 35px;
+    height: 35px;
+  }
+  .selection-rail {
+    padding-inline: 17px;
+  }
+  .selection-rail .number-grid {
+    gap: 9px;
+  }
+  .dealer-heading h1 {
+    font-size: 23px;
+  }
+  .dealer-timing {
+    width: 85px;
+    right: 12px;
+  }
+  .dealer-timing .draw-timer > strong {
+    font-size: 22px;
+  }
+  .lobby-page {
+    padding-inline: 12px;
+  }
+  .lobby-intro h1 {
+    font-size: 28px;
+  }
+  .lobby-quote > strong {
+    font-size: 18px;
+  }
+  .lobby-game-title h2 {
+    font-size: 21px;
+  }
+  .lobby-game-title h2 > span {
+    display: none;
+  }
+  .lobby-game-title .draw-timer > strong {
+    font-size: 16px;
+  }
+  .lobby-game-bottom {
+    flex-wrap: wrap;
+  }
+  .lobby-game-bottom > .button {
+    width: 100%;
+  }
+  .lobby-prize {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .lobby-prize .money:last-child {
+    margin-left: auto;
+  }
+  .lobby-game-foot {
+    font-size: 8px;
+    padding-inline: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lobby-dealer-scene > img {
+    transition: none;
+  }
+  .table-result,
+  .is-shaking .dealer-timing .draw-timer {
+    animation: none;
+  }
+  .wheel-rotor {
+    will-change: auto;
+  }
+}
+/* First browser pass: keep circular number controls and clear the dealer's hands. */
+.brand {
+  gap: 9px;
+}
+.brand img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.brand-small img {
+  width: 34px;
+  height: 34px;
+}
+.wheel-rotor > .wheel-token-logo {
+  position: absolute;
+  top: 36%;
+  left: 36%;
+  width: 28%;
+  height: 28%;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  padding: 5px;
+  background: #060706;
+}
+@media (min-width: 801px) {
+  .selection-rail .number-grid > button {
+    width: 54px;
+    height: 54px;
+    max-height: none;
+    justify-self: center;
+  }
+  .selection-rail .number-grid {
+    grid-auto-rows: 54px;
+  }
+}

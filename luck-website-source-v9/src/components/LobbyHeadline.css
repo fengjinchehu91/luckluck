@@ -1,0 +1,31 @@
+.lobby-intro .lobby-scatter-heading {
+  width: 10em;
+  line-height: 1.3;
+  min-height: 1.3em;
+  white-space: nowrap;
+}
+.lobby-scatter-letter {
+  display: inline-block;
+  font: inherit;
+  font-style: normal;
+  transform-origin: 50% 85%;
+  pointer-events: none;
+}
+.lobby-scatter-heading [data-luck="true"] {
+  color: var(--gold);
+}
+.lobby-scatter-break {
+  display: none;
+}
+@media (max-width: 600px) {
+  .lobby-intro > .lobby-scatter-intro {
+    min-width: 0;
+  }
+  .lobby-intro .lobby-scatter-heading {
+    width: 6em;
+    min-height: 2.6em;
+  }
+  .lobby-scatter-break {
+    display: block;
+  }
+}

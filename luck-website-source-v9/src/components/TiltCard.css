@@ -1,0 +1,82 @@
+.tilt-card {
+  min-width: 0;
+  position: relative;
+}
+
+.tilt-card__surface {
+  position: relative;
+  height: 100%;
+  isolation: isolate;
+  transition:
+    transform 480ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 240ms ease-out,
+    box-shadow 480ms ease-out;
+}
+
+.tilt-card__surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    ellipse at var(--card-light-x, 50%) var(--card-light-y, 35%),
+    color-mix(in srgb, var(--gold) 16%, transparent),
+    transparent 65%
+  );
+  transition: opacity 300ms ease-out;
+}
+
+.tilt-card:focus-within .tilt-card__surface {
+  border-color: var(--gold);
+}
+
+/* Image links keep a visible keyboard focus inside the clipped card. */
+.tilt-card .lobby-scene:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: -4px;
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 801px) and (prefers-reduced-motion: no-preference) {
+  .tilt-card__surface {
+    transform: perspective(1600px) rotateX(var(--card-rx, 0deg))
+      rotateY(var(--card-ry, 0deg));
+  }
+  .tilt-card[data-tilt="active"] {
+    z-index: 1;
+  }
+  .tilt-card[data-tilt="active"] .tilt-card__surface {
+    transform: perspective(1600px) rotateX(var(--card-rx, 0deg))
+      rotateY(var(--card-ry, 0deg)) translateY(-4px);
+    border-color: color-mix(in srgb, var(--gold) 80%, var(--line));
+    box-shadow: 0 22px 34px -20px #000b;
+    transition-duration: 160ms, 240ms, 480ms;
+    will-change: transform;
+  }
+  .tilt-card[data-tilt="active"] .tilt-card__surface::after {
+    opacity: 1;
+  }
+}
+
+/* Keep the three pool labels together when the two cards share a tablet row. */
+@media (min-width: 801px) and (max-width: 1000px) {
+  .tilt-card .lobby-camps > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .tilt-card .lobby-camps strong {
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt-card__surface {
+    transition: border-color 150ms ease-out;
+  }
+  .tilt-card .lobby-scene:hover > img {
+    transform: none;
+  }
+}
